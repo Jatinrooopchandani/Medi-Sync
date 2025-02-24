@@ -1,0 +1,50 @@
+{
+    "thresholds": {
+        "disk_space": {
+            "warning_gb": 2,
+            "critical_gb": 1
+        },
+        "memory_usage": {
+            "warning_percent": 80,
+            "critical_percent": 90
+        },
+        "log_size": {
+            "max_mb": 100,
+            "rotation_size_mb": 10
+        },
+        "model_age": {
+            "warning_days": 30,
+            "critical_days": 90
+        },
+        "request_rate": {
+            "max_per_minute": 60,
+            "max_per_hour": 1000
+        }
+    },
+    "monitoring": {
+        "check_interval_minutes": 60,
+        "report_retention_days": 30,
+        "alert_channels": {
+            "email": {
+                "enabled": true,
+                "recipients": ["ADMIN_EMAIL_HERE"]
+            },
+            "slack": {
+                "enabled": false,
+                "webhook_url": "",
+                "channel": "#monitoring"
+            }
+        }
+    },
+    "paths": {
+        "logs": "logs/",
+        "models": "models/",
+        "datasets": "datasets/",
+        "reports": "logs/monitoring/"
+    },
+    "health_check": {
+        "endpoint": "/health",
+        "timeout_seconds": 30,
+        "expected_status": 200
+    }
+}
