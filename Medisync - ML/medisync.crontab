@@ -1,0 +1,19 @@
+# Medisync ML Monitoring Schedule
+
+# Run basic system checks every 15 minutes
+*/15 * * * * cd /path/to/Medisync-ML && ./system_check.py --quiet
+
+# Run full monitoring check every hour
+0 * * * * cd /path/to/Medisync-ML && ./monitor.py
+
+# Rotate logs daily at midnight
+0 0 * * * cd /path/to/Medisync-ML && ./start.sh rotate-logs
+
+# Clean up old monitoring reports weekly
+0 0 * * 0 cd /path/to/Medisync-ML && find logs/monitoring -name "health_report_*.json" -mtime +30 -delete
+
+# Verify ML model files daily
+0 6 * * * cd /path/to/Medisync-ML && ./system_check.py --check models
+
+# Full system backup weekly
+0 2 * * 0 cd /path/to/Medisync-ML && ./start.sh backup
