@@ -1,0 +1,10 @@
+flask>=3.0.0
+waitress>=3.0.0
+numpy>=2.0.0
+pandas>=2.0.0
+tensorflow>=2.18.0
+scikit-learn>=1.0.0  # for the random forest model
+python-dotenv>=1.0.0  # for environment variable management
+flask-limiter>=3.5.0  # for rate limiting
+typing-extensions>=4.0.0  # required by flask-limiter
+limits>=3.9.0  # required by flask-limiter

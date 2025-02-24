@@ -1,0 +1,29 @@
+[Unit]
+Description=Medisync ML Service
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=medisync
+Group=medisync
+WorkingDirectory=/opt/medisync-ml
+Environment=FLASK_ENV=production
+Environment=FLASK_DEBUG=False
+ExecStart=/opt/medisync-ml/start.sh
+Restart=always
+RestartSec=1
+StandardOutput=append:/var/log/medisync/access.log
+StandardError=append:/var/log/medisync/error.log
+
+# Security settings
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=full
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+
+[Install]
+WantedBy=multi-user.target

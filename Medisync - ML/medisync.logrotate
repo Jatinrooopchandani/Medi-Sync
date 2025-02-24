@@ -1,0 +1,37 @@
+/var/log/medisync/*.log {
+    daily
+    rotate 14
+    compress
+    delaycompress
+    missingok
+    notifempty
+    create 0640 medisync medisync
+    sharedscripts
+    postrotate
+        systemctl reload medisync >/dev/null 2>&1 || true
+    endscript
+}
+
+/opt/medisync-ml/logs/*.log {
+    daily
+    rotate 14
+    compress
+    delaycompress
+    missingok
+    notifempty
+    create 0640 medisync medisync
+    sharedscripts
+    postrotate
+        systemctl reload medisync >/dev/null 2>&1 || true
+    endscript
+}
+
+/opt/medisync-ml/logs/archive/*.log {
+    weekly
+    rotate 52
+    compress
+    delaycompress
+    missingok
+    notifempty
+    create 0640 medisync medisync
+}
