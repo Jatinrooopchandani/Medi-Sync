@@ -1,0 +1,22 @@
+{
+    "rf.json": {
+        "version": "1.0.0",
+        "expected_hash": "TO_BE_COMPUTED",
+        "model_type": "random_forest"
+    },
+    "lstm_drug_model.keras": {
+        "version": "1.0.0", 
+        "expected_hash": "TO_BE_COMPUTED",
+        "model_type": "lstm"
+    },
+    "tokenizer.json": {
+        "version": "1.0.0",
+        "expected_hash": "TO_BE_COMPUTED",
+        "model_type": "tokenizer"
+    },
+    "drug_encoder.json": {
+        "version": "1.0.0",
+        "expected_hash": "TO_BE_COMPUTED",
+        "model_type": "encoder"
+    }
+}
